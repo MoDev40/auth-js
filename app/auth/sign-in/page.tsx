@@ -7,7 +7,7 @@ export default function SignIn() {
         <form
             action={async () => {
                 "use server"
-                await signIn("google")
+                await signIn("google",{redirectTo:"/"})
             }}
             >
             <button className="p-2 w-full bg-slate-600 text-white shadow-md  rounded-md" type="submit">Sign-in with Google</button>
@@ -15,7 +15,7 @@ export default function SignIn() {
         <form
             action={async () => {
                 "use server"
-                await signIn("github")
+                await signIn("github",{redirectTo:"/"})
             }}
             >
             <button className="p-2 w-full bg-slate-600 text-white shadow-md  rounded-md"  type="submit">Sign-in with Github</button>

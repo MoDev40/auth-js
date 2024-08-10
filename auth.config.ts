@@ -4,10 +4,6 @@ import { PrismaAdapter } from "@auth/prisma-adapter";
 
 export const authConfig = {
     adapter:PrismaAdapter(prisma),
-    session:{
-        strategy: "jwt",
-        maxAge: 5 * 60 * 60 * 1000,
-    },
     callbacks:{
         async authorized({request:{ nextUrl },auth}){
             const isLogin = !!auth?.user
