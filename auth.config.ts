@@ -1,14 +1,16 @@
+import { PrismaAdapter } from "@auth/prisma-adapter";
 import { NextAuthConfig } from "next-auth";
 import prisma from "./lib/client";
-import { PrismaAdapter } from "@auth/prisma-adapter";
+
 
 export const authConfig = {
     adapter:PrismaAdapter(prisma),
+    session:{
+        strategy:"jwt",
+    },
     callbacks:{
-        async authorized({request:{ nextUrl },auth}){
-            const isLogin = !!auth?.user
-            
-            return isLogin;
+        async authorized({ auth }){
+            return !!auth;
         }
     },
     providers:[],
