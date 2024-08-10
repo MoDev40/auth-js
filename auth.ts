@@ -3,7 +3,7 @@ import Github from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
 import { authConfig } from "./auth.config";
 
-export const { auth,signIn,signOut } = NextAuth({
+export const { handlers,auth,signIn,signOut } = NextAuth({
     ...authConfig,
     providers:[
         Google,
